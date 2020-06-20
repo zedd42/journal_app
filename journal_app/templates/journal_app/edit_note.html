@@ -1,0 +1,10 @@
+{% extends 'journal_app/base.html' %}
+{% load static %}
+{% block content %}
+    <form action="{% url 'journal_app:edit_note' note.id %}" method="post">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+        <button name="submit">save</button>
+    </form>
+{% endblock content %}
