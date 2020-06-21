@@ -6,6 +6,7 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'journal_app/css/style.css' %}">
 <style> .django-ckeditor-widget {     min-width:100% !important; } </style>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 <div class="row">
     {% if user.is_authenticated %} <h4> Welcome back  {{ user.username }}. </h4>{% endif %}
 </div>
@@ -33,17 +34,12 @@
         {% buttons %}
         <button class="btn btn-primary btn-sm " name="submit">Save</button>
         {% endbuttons %}
-        {{ form.heading | as_crispy_field }}
+        <div>
         {{ form.media }}
+        
         {{ form.as_p }}
-        {{ form.text }}
         
-        
-        
-
-        
-      
-        
+        </div>
     </form>  
   </div>
 </div>
