@@ -1,6 +1,8 @@
 {% extends 'journal_app/base.html' %}
 {% load bootstrap4 %}
 {% load static %}
+{% load crispy_forms_tags %}
+
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'journal_app/css/style.css' %}">
 <style> .django-ckeditor-widget {     min-width:100% !important; } </style>
@@ -31,10 +33,13 @@
         {% buttons %}
         <button class="btn btn-primary btn-sm " name="submit">Save</button>
         {% endbuttons %}
+        {{ form.heading | as_crispy_field }}
+        {{ form.text | as_crispy_field }}
+        {{ form.media }}
         
-        {% bootstrap_form form %}
-        {{ form.media}}
+
         
+      
         
     </form>  
   </div>

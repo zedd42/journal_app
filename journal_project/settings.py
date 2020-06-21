@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     #third part apps
     'ckeditor',
     'bootstrap4',
+    'crispy_forms',
 
     # Default django app
     'django.contrib.admin',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
