@@ -128,6 +128,30 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # My settings
 LOGIN_URL = 'users:login'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 # Heroku settings
 import django_heroku
 django_heroku.settings(locals())
+# ckeditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbarCanCollapse': True,
+        'toolbar': [
+            ['Undo', 'Redo',
+             '-', 'Bold', 'Italic', 'Underline',
+             '-', 'Link', 'Unlink', 'Anchor',
+             '-', 'Format',
+             '-', 'SpellChecker', 'Scayt',
+             '-', 'Maximize',
+             '-', 'Language',
+            ],
+        ],
+        'height': 700,
+        'width': '100%',
+        'skin': 'minimalist',
+        
+        
+    },
+}

@@ -3,8 +3,14 @@ from ckeditor.fields import RichTextField
 from .models import Note
 
 class EntryForm(forms.ModelForm):
-    #book_comment = forms.CharField(widget=RichTextField(), label='')
+   
     class Meta:
         model = Note
-        fields = ['text']
-        widgets = {'text': RichTextField()}
+        fields = ['heading', 'text']
+        labels={'text':'','heading':''}
+        widgets = {
+            'heading':forms.TextInput( 
+                attrs={'placeholder':'Heading','style':  'border-0'}
+                ),
+            'text': RichTextField()
+            }
