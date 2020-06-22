@@ -1,4 +1,9 @@
 {% extends 'journal_app/base.html' %}
+<<<<<<< HEAD
+=======
+{% load bootstrap4 %}
+{% load static %}
+>>>>>>> parent of e23e08e... Changed the form from bootstrap tag to crispy
 {% block content %}
 <div class="row">
     {% if user.is_authenticated %} <h4> Welcome back  {{ user.username }}. </h4>{% endif %}
@@ -23,9 +28,20 @@
   <div class="col">
     <form action="{% url 'journal_app:notes' %}" method="post">
         {% csrf_token %}
+<<<<<<< HEAD
         {{ form.media }}
         {{ form.as_p }}
         <button name="submit">save</button>
+=======
+        {% buttons %}
+        <button class="btn btn-primary btn-sm " name="submit">Save</button>
+        {% endbuttons %}
+        
+        {% bootstrap_form form %}
+        {{ form.media}}
+        
+        
+>>>>>>> parent of e23e08e... Changed the form from bootstrap tag to crispy
     </form>  
   </div>
 </div>
