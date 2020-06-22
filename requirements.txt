@@ -7,7 +7,7 @@ keyring==10.6.0
 keyrings.alt==3.0
 pycrypto==2.6.1
 pycurl==7.43.0.1
-pygobject==3.26.1
+pygobject==3.27.1
 pyliblzma==0.5.3
 pysqlite==1.0.1
 pyxdg==0.25
