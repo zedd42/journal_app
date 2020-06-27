@@ -7,4 +7,5 @@ class EntryForm(forms.ModelForm):
     class Meta:
         model = Note
         fields = ['text']
+        labels = {'text':''}
         widgets = {'text': RichTextField()}

@@ -5,34 +5,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1,
     shrink-to-fit=no">
-<<<<<<< HEAD
-  <title>Learning Log</title>
-=======
   <title>Journal</title>
->>>>>>> parent of e23e08e... Changed the form from bootstrap tag to crispy
   {% bootstrap_css %}
   {% bootstrap_javascript jquery='full' %}
 </head>
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  
-  {% if user.is_authenticated %}
-    <a class="navbar-brand" href="{% url 'journal_app:notes' %}">Journal</a>
-    <a class="btn btn-outline-primary" href="{% url 'users:logout' %}">Sign out</a>
-  {% else %}
-    <a class="navbar-brand" href="{% url 'journal_app:index' %}">Journal</a>
-    <a class="btn btn-outline-primary" href="{% url 'users:login' %}">Sign in</a>
-  {% endif %}
- 
-  
-</nav>
 
-<div class="container-fluid">
+
+
 {% block content %}
 {% endblock content %}
-</div>
+
 {% block footer %}
 
 {% endblock footer %}

@@ -128,3 +128,23 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # My settings
 LOGIN_URL = 'users:login'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': [
+            ['Undo', 'Redo',
+             '-', 'Bold', 'Italic', 'Underline',
+             '-', 'Link', 'Unlink', 'Anchor',
+             '-', 'Format',
+             '-', 'SpellChecker', 'Scayt',
+             '-', 'Maximize',
+             '-', 'Language',
+            ],
+        ],
+        'height': 700,
+        'width': '100%',
+        'toolbarCanCollapse': False,
+    },
+}

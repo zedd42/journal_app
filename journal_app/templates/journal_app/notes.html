@@ -1,47 +1,60 @@
 {% extends 'journal_app/base.html' %}
-<<<<<<< HEAD
-=======
 {% load bootstrap4 %}
 {% load static %}
->>>>>>> parent of e23e08e... Changed the form from bootstrap tag to crispy
 {% block content %}
+<style> 
+.django-ckeditor-widget {     
+  min-width:100% !important; 
+  min-height:100% !important;
+  } 
+.my-row {
+  border-bottom: 1px solid lightgrey;
+  word-wrap: break-word;
+  
+}
+</style>
+
+          <nav class="navbar  navbar-light bg-light">
+    
+        {% if user.is_authenticated %}
+          <a class="navbar-brand" href="{% url 'journal_app:notes' %}">Journal</a>
+          <a class="btn btn-outline-primary" href="{% url 'users:logout' %}">Sign out</a>
+        {% else %}
+          <a class="navbar-brand" href="{% url 'journal_app:index' %}">Journal</a>
+          <a class="btn btn-outline-primary" href="{% url 'users:login' %}">Sign in</a>
+        {% endif %}
+  
+    
+      </nav>
+<div class="container-fluid mx-2 p-3">
+
+
 <div class="row">
-    {% if user.is_authenticated %} <h4> Welcome back  {{ user.username }}. </h4>{% endif %}
-</div>
-<div class="row">
-  <div class="col-sm-3">
-    <div class="card">
+  <div class="col-sm-2">
+    
       {% for note in notes %}
-      <div class="card-body border">
-        <h5>{{ note.date_added|date:'M d, Y H:i' |safe|linebreaksbr }}</h5>
-        <h6> {{ note | safe | linebreaksbr }} </h6>
-        <a href="{% url 'journal_app:edit_note' note.id %}">Edit</a>
-      </div>
+        <div class="row my-row">
+          <p> {{ note | safe | linebreaks}} <p>
+          <a href="{% url 'journal_app:edit_note' note.id %}">Edit</a>
+        </div>
       {% empty %}
-      <div class="card-body border">
         <h5>You have no notes yet. </h5>
-      </div>
       {% endfor %}
-    </div>
+    
 
   </div>
-  <div class="col">
+  <div class="col-sm-10 style="min-width:100%"">
+    
     <form action="{% url 'journal_app:notes' %}" method="post">
         {% csrf_token %}
-<<<<<<< HEAD
+        {% buttons %}
+        {% if user.is_authenticated %} <h4> What's on your mind,   {{ user.username }}. </h4>{% endif %}
+        <button class="btn btn-primary btn-sm float-right m-2 " name="submit">Save</button>
+        {% endbuttons %}
         {{ form.media }}
         {{ form.as_p }}
-        <button name="submit">save</button>
-=======
-        {% buttons %}
-        <button class="btn btn-primary btn-sm " name="submit">Save</button>
-        {% endbuttons %}
         
-        {% bootstrap_form form %}
-        {{ form.media}}
-        
-        
->>>>>>> parent of e23e08e... Changed the form from bootstrap tag to crispy
+
     </form>  
   </div>
 </div>
