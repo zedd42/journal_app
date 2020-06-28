@@ -25,7 +25,10 @@ SECRET_KEY = 'w%m^5n&jysdk+(gd_n+8mvo7*^)at7zi=11vn4mw_i4(pdboxi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'http://ali-journal.herokuapp.com/',
+    'http://127.0.0.1:8000/',
+]
 
 
 # Application definition
