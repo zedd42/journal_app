@@ -150,3 +150,7 @@ CKEDITOR_CONFIGS = {
         'toolbarCanCollapse': False,
     },
 }
+
+# Heroku settings.
+import django_heroku
+django_heroku.settings(locals())
