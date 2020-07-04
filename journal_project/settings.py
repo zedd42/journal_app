@@ -136,13 +136,13 @@ STATICFILES_DIRS = [
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': [
-            ['Undo', 'Redo',
+            [ 'Format',
+            '-','Undo', 'Redo',
              '-', 'Bold', 'Italic', 'Underline',
-             '-', 'Link', 'Unlink', 'Anchor',
-             '-', 'Format',
-             '-', 'SpellChecker', 'Scayt',
+             '-', 'Link', 'Unlink',
+             
+             '-', 'SpellChecker',
              '-', 'Maximize',
-             '-', 'Language',
             ],
         ],
         'height': 700,
@@ -150,7 +150,7 @@ CKEDITOR_CONFIGS = {
         'toolbarCanCollapse': False,
     },
 }
-
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 # Heroku settings.
 import django_heroku
 django_heroku.settings(locals())

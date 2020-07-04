@@ -1,1 +1,9 @@
-
+.django-ckeditor-widget {     
+    min-width:100% !important; 
+    min-height:100% !important;
+    } 
+.my-row {
+    border-bottom: 1px solid lightgrey;
+    word-wrap: break-word;
+    
+  }

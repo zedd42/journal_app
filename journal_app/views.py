@@ -26,6 +26,7 @@ def notes(request):
 @login_required
 def edit_note(request, note_id):
     note = Note.objects.filter(owner=request.user).get(id=note_id)
+    notes = Note.objects.filter(owner=request.user).order_by('-date_added')
     if note.owner != request.user:
         raise Http404
     if request.method != 'POST':
@@ -37,5 +38,16 @@ def edit_note(request, note_id):
             new_note.owner=request.user
             new_note.save()
             return redirect('journal_app:notes')
-    context={'note': note, 'form': form}
-    return render(request, 'journal_app/edit_note.html', context)
+    context={'note': note, 'form': form, 'notes': notes}
+    return render(request, 'journal_app/notes.html', context)
+
+
+def delete_note(request, note_id):
+    note = Note.objects.filter(owner=request.user).get(id=note_id)
+    notes = Note.objects.filter(owner=request.user).order_by('-date_added')
+    if request.method == 'POST':
+        note.delete()
+        return redirect('journal_app:notes')
+    form = EntryForm()
+    context={'note':note, 'notes': notes, 'form': form}
+    return render(request, 'journal_app/delete_note.html', context)

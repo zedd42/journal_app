@@ -1,5 +1,6 @@
 """ Defines URL patterns for journals."""
 from django.urls import path
+
 # the dot tells that views is in the same directory
 from . import views
 
@@ -11,5 +12,6 @@ urlpatterns = [
     # the name for this path so dont hardcode it)
     path('', views.index, name='index'),
     path('notes/', views.notes, name='notes'),
-    path('edit_note/<int:note_id>/', views.edit_note, name='edit_note')
+    path('edit_note/<int:note_id>/', views.edit_note, name='edit_note'),
+    path('delete_note/<int:note_id>/', views.delete_note, name='delete_note')
 ]

@@ -4,19 +4,8 @@
 
 {% block content %}
 <div class="container-fluid">
-  <link rel="stylesheet" href="{% static 'journal_app/css/style.css' %}">
-      <nav class="navbar  navbar-light bg-light">
-    
-        {% if user.is_authenticated %}
-          <a class="navbar-brand" href="{% url 'journal_app:notes' %}">Journal</a>
-          <a class="btn btn-outline-primary" href="{% url 'users:logout' %}">Sign out</a>
-        {% else %}
-          <a class="navbar-brand" href="{% url 'journal_app:index' %}">Journal</a>
-          <a class="btn btn-outline-primary" href="{% url 'users:login' %}">Sign in</a>
-        {% endif %}
   
-    
-      </nav>
+
   <div class="jumbotron bg-light">
     <div class="row justify-content-around align-items-center">
       <div class="col-md-4 text-left">

@@ -1,0 +1,21 @@
+{% extends 'journal_app/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+<div class="card">
+    <div class= "card-body">
+        <h5 class="card_title">
+            Please confirm if you want to delete. 
+        </h5>
+        <div class="card-text">
+            {{ note|safe  }}
+        </div>
+        <form action="{% url 'journal_app:delete_note' note.id %}" method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger btn-sm" name="submit">Delete</button>
+        <a class="btn btn-sm" href="{% url 'journal_app:notes'  %}">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock content %}
+

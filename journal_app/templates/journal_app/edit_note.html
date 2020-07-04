@@ -5,6 +5,12 @@
         {% csrf_token %}
         {{ form.media }}
         {{ form.as_p }}
-        <button name="submit">save</button>
+        <button class="btn btn-primary" name="submit">save</button>
     </form>
+    <form action="{% url 'journal_app:delete_note' note.id %}" method="post">
+        {% csrf_token %}
+        
+        <button class="btn btn-danger btn-sm" name="submit">Delete</button>
+    </form>
+
 {% endblock content %}
